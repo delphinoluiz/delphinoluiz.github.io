@@ -2,7 +2,19 @@
 <script src="../AR/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
-		<a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-        <a-marker-camera preset='hiro'></a-marker-camera>
+  
+	<a-marker preset='custom' url='./marker/ticket.patt'>
+      <a-box position='0 0.5 0' material='color: red;'></a-box>
+	</a-marker>
+	
+	  <!-- handle marker with hiro preset -->
+	  <a-marker preset='ticket'>
+		<a-box position='0 0.5 0' material='color: green;'></a-box>
+	  </a-marker>
+
+	  
+  
+	  <!-- add a simple camera -->
+	  <a-entity camera></a-entity>
 	</a-scene>
-</body>
+  </body>

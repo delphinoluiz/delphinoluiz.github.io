@@ -1604,7 +1604,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 
 	// Eg.
 	//	ajax('../bin/Data2/markers.dat', '/Data2/markers.dat', callback);
-	//	ajax('../bin/Data/patt.hiro', '/patt.hiro', callback);
 
 	function ajax(url, target, callback) {
 		var oReq = new XMLHttpRequest();
@@ -8034,6 +8033,10 @@ ARjs.MarkersAreaUtils.createDefaultMarkersControlsParameters = function(tracking
 			},
 			{
 				type : 'pattern',
+				patternUrl : absoluteBaseURL + 'examples/marker-training/examples/pattern-files/ticket.patt',
+			},
+			{
+				type : 'pattern',
 				patternUrl : absoluteBaseURL + 'examples/marker-training/examples/pattern-files/pattern-kanji.patt',
 			},
 			{
@@ -8290,6 +8293,10 @@ AFRAME.registerComponent('arjs-anchor', {
 			}else if( _this.data.preset === 'kanji' ){
 				markerParameters.type = 'pattern'
 				markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-kanji.patt'
+				markerParameters.markersAreaEnabled = false
+			}else if( _this.data.preset === 'ticket' ){
+				markerParameters.type = 'pattern'
+				markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/ticket.patt'
 				markerParameters.markersAreaEnabled = false
 			}else if( _this.data.preset === 'area' ){
 				markerParameters.type = 'barcode'
