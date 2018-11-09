@@ -7,12 +7,29 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>        
         <script src="https://jeromeetienne.github.io/AR.js/three.js/build/ar.min.js"></script>
-
+        <style>
+            .demo-wrapper {
+              display: inline-block;
+            }
+        
+            .progress-bar {
+              width: 100%;
+            }
+        
+            [data-role="play-stop"].stopped:after {
+              content: '>';
+            }
+        
+            [data-role="play-stop"].play:after {
+              content: '||';
+            }
+        
+          </style>
     </head>
     <body>
 
         <div id="container"></div>
-
+        <script src="simple-video-player.js"></script>
         <script>
             var renderer,
     scene,
@@ -24,7 +41,8 @@ var arSource,
     arMarker = [];
 
 var 
-    mesh;
+    mesh,
+    videoplayer;
 
 init();
 
@@ -51,7 +69,14 @@ function init(){
         transparent: true,
         opacity: 0.5
     }));
-    scene.add(mesh);
+
+    videoplayer = new SimpleVideoPlayer({
+      el: document.querySelector('.demo-wrapper'),
+      url: 'https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4'
+    //   url: 'https://edgeset.sharepoint.com/:v:/g/EckEqWnJa0xEvmAn8vcbMv8BQOdAKB15pCE1zJNbGZ9lTA?e=5cK475'
+    });
+
+    scene.add(videoplayer);
 
 
 
@@ -118,7 +143,7 @@ function render(){
     scene.visible = camera.visible;
 
 
-    mesh.rotateX(.1);
+    // mesh.rotateX(.1);
 
 }          
 
