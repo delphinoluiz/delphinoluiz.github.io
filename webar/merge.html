@@ -146,7 +146,7 @@
                 arContext.init(function onCompleted(){
                     
                     camera.projectionMatrix.copy(arContext.getProjectionMatrix());
-
+                    console.log('Hello');
                 });
 
 
@@ -163,7 +163,6 @@
                 arContext.update(arSource.domElement);
                 scene.visible = camera.visible;
                 // videoplayer.visible = camera.visible;
-                console.log('Hello');
                 mesh.rotateX(.1);
 
             }          
