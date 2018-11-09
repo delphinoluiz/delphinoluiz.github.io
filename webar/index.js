@@ -86,6 +86,12 @@ function init(){
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
+    arMarker[6] = new THREEx.ArMarkerControls(arContext, camera, {
+        type : 'pattern',
+        patternUrl : './assets/data/daytona.patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
+
 
 
     /* handle */
