@@ -68,6 +68,24 @@ function init(){
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
+    arMarker[3] = new THREEx.ArMarkerControls(arContext, camera, {
+        type : 'pattern',
+        patternUrl : './assets/data/pattern-marker.patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
+
+    arMarker[4] = new THREEx.ArMarkerControls(arContext, camera, {
+        type : 'pattern',
+        patternUrl : './assets/data/pattern-marker (1).patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
+
+    arMarker[5] = new THREEx.ArMarkerControls(arContext, camera, {
+        type : 'pattern',
+        patternUrl : './assets/data/pattern-marker (2).patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
+
 
 
     /* handle */
