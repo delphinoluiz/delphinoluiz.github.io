@@ -1,0 +1,72 @@
+<script>
+
+    var scene, 
+    var AR1,
+    var AR2,
+    var ARVideoScreen;
+    
+    AFRAME.registerComponent('markerhandler', {
+    
+      init: function() {
+    
+        // Set up the tick throttling. Will check if marker is active every 500ms
+        this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+      },
+    
+      tick: function(t, dt) {
+    
+        if (document.querySelector("#hiroMarker").object3D.visible == true && playing == false) {
+          // MARKER IS PRESENT
+          //alert("MARKER IS PRESENT")
+    
+              scene = document.querySelector('#a-scene');
+            AR1 = document.querySelector('#Object01');
+            AR2 = document.querySelector('#Object02');
+          ARVideoScreen =  document.querySelector('#videoScreen');
+    
+          AR-Object01.addEventListener('click', function () { console.log("object01 clickable in AR") });
+          AR-Object02.addEventListener('click', function () { console.log("object02 clickable in AR") });
+          videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
+          playing = true;
+    
+        }
+    
+        else {
+          // MARKER IS HIDDEN, do nothing (up to you)
+        }
+        }
+    });
+    
+    function playPauseVideo(){
+    
+    if (video.paused)
+        video.play();
+      else
+        video.pause();
+    }
+    
+    
+    </script>
+    
+    <a-scene id="a-scene" cursor="rayOrigin: mouse" embedded arjs="sourceType:webcam; maxDetectionRate:30; debugUiEnabled:false;">
+    
+          <a-assets>
+    
+          <video id="video" loop="true" src="./video/ticket.mp4" webkit-playsinline>
+    
+       </a-assets>
+    
+       <a-marker preset='hiro' markerhandler emitevents="true" id="hiroMarker">
+    
+    
+        <a-entity id="AR-Object01" (info about this object)></a-entity>
+        <a-entity id="AR-Object02" (info about this object)></a-entity>
+    
+        <a-video id="videoScreen" src="#video" width="16" height="9" autoplay=true></a-video>
+    
+    
+       </a-marker>
+    
+    <a-entity camera></a-entity>
+    
+      </a-scene>
