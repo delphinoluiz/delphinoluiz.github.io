@@ -6,8 +6,6 @@
 <script>
 
     var scene
-    var AR1
-    var AR2
     var ARVideoScreen;
     
     AFRAME.registerComponent('markerhandler', {
@@ -25,12 +23,7 @@
           //alert("MARKER IS PRESENT")
     
               scene = document.querySelector('#a-scene');
-            AR1 = document.querySelector('#Object01');
-            AR2 = document.querySelector('#Object02');
           ARVideoScreen =  document.querySelector('#videoScreen');
-    
-          AR1.addEventListener('click', function () { console.log("object01 clickable in AR") });
-          AR2.addEventListener('click', function () { console.log("object02 clickable in AR") });
           videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
           playing = true;
     
@@ -62,14 +55,7 @@
        </a-assets>
     
        <a-marker preset='hiro' markerhandler emitevents="true" id="hiroMarker">
-    
-    
-        <a-entity id="AR1"></a-entity>
-        <a-entity id="AR2"></a-entity>
-    
         <a-video id="videoScreen" src="#video" width="16" height="9" autoplay=true></a-video>
-    
-    
        </a-marker>
     
     <a-entity camera></a-entity>
