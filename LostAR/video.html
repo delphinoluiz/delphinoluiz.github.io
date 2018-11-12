@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Simple Video Demo (latest)</title>
+  <title>Video Player</title>
   <style>
     .demo-wrapper {
       display: inline-block;
@@ -28,17 +28,13 @@
 
 <body>
 </body>
-<h1>Simple video player demo (latest)</h1>
-<p>More information and source code could be found
-  <a href="https://github.com/vvscode/js--simple-video-player">here</a>
-</p>
 <div class="demo-wrapper"></div>
 <script src="simple-video-player.js"></script>
 <script>
   (function () {
     new SimpleVideoPlayer({
       el: document.querySelector('.demo-wrapper'),
-      url: 'https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4'
+      url: './video/ticket.mp4'
       // url: 'https://edgeset.sharepoint.com/:v:/g/EckEqWnJa0xEvmAn8vcbMv8BQOdAKB15pCE1zJNbGZ9lTA?e=5cK475'
     });
   })();
