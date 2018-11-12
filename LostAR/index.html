@@ -11,7 +11,7 @@
       <a-box position='0 0.5 0' material='color: red;'></a-box>
     </a-marker>
 
-    <a-marker preset='hiro'>
+    <a-marker preset='hiro' id="amarker" ref="amarker">
         <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
     </a-marker>
 
@@ -19,14 +19,17 @@
     </a-scene>
 
     <script>
-            var m = document.querySelector("a-marker")
-            m.addEventListener("markerFound", (e)=>{
-            console.log("found")
-            })
-    
-            m.addEventListener("markerLost", (e)=>{
-            console.log("lost")
-            })
+        setInterval(this.verifyMarker, 1000);
+
+        verifyMarker(){
+            var amarker = document.querySelector("#amarker")
+            if(amarker.object3D.visible == true) {
+                console.log('marker is visible');
+            }
+            else {
+                console.log('marker is lost');
+            }
+        }
     </script>
 
   </body>
