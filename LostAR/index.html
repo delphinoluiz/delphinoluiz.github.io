@@ -8,11 +8,15 @@
 
     <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
     <a-marker preset='custom' type="pattern" url='./patt/one.patt' id="one" ref="one">
-      <a-box position='0 0.5 0' material='color: red;'></a-box>
+      <!-- <a-box position='0 0.5 0' material='color: red;'></a-box> -->
+    </a-marker>
+
+    <a-marker preset='custom' type="pattern" url='./patt/daytona.patt' id="daytona" ref="daytona">
+        <!-- <a-box position='0 0.5 0' material='color: red;'></a-box> -->
     </a-marker>
 
     <a-marker preset='hiro' id="amarker" ref="amarker">
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+        <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
     </a-marker>
 
   	<a-entity camera></a-entity>
@@ -25,6 +29,15 @@
             console.log('Hello');
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
+                console.log('marker is visible');
+                document.location.href = "video.html";
+            }
+            else {
+                console.log('marker is lost');
+            }
+
+            var daytona = document.querySelector("#daytona")
+            if(daytona.object3D.visible == true) {
                 console.log('marker is visible');
                 document.location.href = "video.html";
             }
