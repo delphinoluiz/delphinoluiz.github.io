@@ -22,6 +22,7 @@
         setInterval(this.verifyMarker, 1000);
 
         verifyMarker(){
+            console.log('Hello');
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
                 console.log('marker is visible');
