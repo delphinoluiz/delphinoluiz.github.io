@@ -8,7 +8,7 @@
     <div id="myEmbeddedScene">
         <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
-                <video id="video" loop="true" src="./video/ticket.mp4" webkit-playsinline>
+                <video id="penguin-sledding" autoplay loop="true" src="./video/ticket.mp4"></video>
             </a-assets>
             <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
             <a-marker preset='custom' type="pattern" url='./patt/one.patt' id="one" ref="one">
@@ -17,18 +17,16 @@
         
             <a-marker preset='custom' type="pattern" url='./patt/daytona.patt' id="daytona" ref="daytona">
                 <!-- <a-box position='0 0.5 0' material='color: red;'></a-box> -->
-                <a-video id="videoScreen" src="#video" width="16" height="9" autoplay=true></a-video>
+                <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
             </a-marker>
         
             <a-marker preset='hiro' id="amarker" ref="amarker">
                 <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-                <a-video id="videoScreen" src="#video" width="9" height="9" autoplay=true></a-video>
+                <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
             </a-marker>
         
               <a-entity camera></a-entity>
             </a-scene>
-
-            <button type="button">Click Me!</button>
       </div>
 
     <script>
