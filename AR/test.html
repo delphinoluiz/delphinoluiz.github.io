@@ -1,3 +1,8 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"> </script>
+  
 <script>
 
     var scene
@@ -47,7 +52,7 @@
     
     
     </script>
-    
+    <body style='margin : 0px; overflow: hidden;'>
     <a-scene id="a-scene" cursor="rayOrigin: mouse" embedded arjs="sourceType:webcam; maxDetectionRate:30; debugUiEnabled:false;">
     
           <a-assets>
@@ -70,3 +75,5 @@
     <a-entity camera></a-entity>
     
       </a-scene>
+    </body>
+    </html>
