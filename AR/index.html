@@ -7,9 +7,15 @@
 
     <style>
         .videoplayer {
-            width:10%;
-            height:10%;
+            width: 960px;
+            position: relative;
+            margin:0 auto;
+            line-height: 1.4em;
             display: none; 
+        }
+        /* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */    
+        @media only screen and (max-width: 479px){
+            .videoplayer { width: 90%; }
         }
     </style>
         <div>
