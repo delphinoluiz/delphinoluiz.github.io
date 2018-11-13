@@ -8,7 +8,8 @@
     <style>
         .videoplayer {
             width:10%;
-            height:10%; 
+            height:10%;
+            display: none; 
         }
     </style>
         <div>
@@ -36,7 +37,7 @@
                         </a-scene>
             </div>
 
-            <div class="videoplayer">
+            <div class="videoplayer" id="videoplayer">
                     <!-- <button type="button">Click Me!</button>     -->
             </div>
         </div>
@@ -55,13 +56,18 @@
 
         function verifyMarker(){
             console.log('Hello');
+
+            var x = document.getElementById("videoplayer");
+  
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
                 console.log('marker is visible');
                 // document.location.href = "video.html";
+                x.style.display = "block";
             }
             else {
                 console.log('marker is lost');
+                x.style.display = "none";
             }
 
             var daytona = document.querySelector("#daytona")
