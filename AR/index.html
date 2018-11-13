@@ -52,7 +52,7 @@
 
             <div class="videoplayer" id="videoplayer">
                     <!-- <button type="button">Click Me!</button>     -->
-                    <video src="./video/ticket.mp4" height="50%" width="50%" autoplay \>
+                    <video id="videos" src="./video/ticket.mp4" height="50%" width="50%" \>
             </div>
         </div>
     <script>
@@ -62,12 +62,14 @@
             console.log('Hello');
 
             var x = document.getElementById("videoplayer");
+            var videos = document.getElementById("videos");
   
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
                 console.log('marker is visible');
                 // document.location.href = "video.html";
                 x.style.display = "block";
+                videos.style.autoplay();
             }
             else {
                 console.log('marker is lost');
