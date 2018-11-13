@@ -9,29 +9,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   var URL = Symbol("url");
   var PLAY_STATE = Symbol("playState");
 
-  var updateDuration = function updateDuration(el, duration) {
-    return el.querySelector(".progress-bar").setAttribute("max", duration);
-  };
+  // var updateDuration = function updateDuration(el, duration) {
+  //   return el.querySelector(".progress-bar").setAttribute("max", duration);
+  // };
 
-  var updateCurrentTime = function updateCurrentTime(el, currentTime) {
-    return el.querySelector(".progress-bar").setAttribute("value", currentTime);
-  };
+  // var updateCurrentTime = function updateCurrentTime(el, currentTime) {
+  //   return el.querySelector(".progress-bar").setAttribute("value", currentTime);
+  // };
 
   var resetProgress = function resetProgress(el, data) {
     return el.querySelector("video").currentTime = 0;
   };
 
-  var updatePlayStopControlState = function updatePlayStopControlState(el, type) {
-    var btn = el.querySelector('[data-role="play-stop"]');
+  // var updatePlayStopControlState = function updatePlayStopControlState(el, type) {
+  //   var btn = el.querySelector('[data-role="play-stop"]');
 
-    if (type === "play") {
-      btn.classList.remove("stopped");
-      btn.classList.add("play");
-    } else if (type = "pause") {
-      btn.classList.remove("play");
-      btn.classList.add("stopped");
-    }
-  };
+  //   if (type === "play") {
+  //     btn.classList.remove("stopped");
+  //     btn.classList.add("play");
+  //   } else if (type = "pause") {
+  //     btn.classList.remove("play");
+  //     btn.classList.add("stopped");
+  //   }
+  // };
 
   var SimpleVideoPlayer = function () {
     function SimpleVideoPlayer(options) {
@@ -75,37 +75,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }, {
       key: "subscribeToEvents",
-      value: function subscribeToEvents() {
-        var _this = this;
+      // value: function subscribeToEvents() {
+      //   var _this = this;
 
-        var videoEl = this[ELEMENT].querySelector("video");
-        videoEl.addEventListener("durationchange", function (data) {
-          return updateDuration(_this[ELEMENT], videoEl.duration);
-        });
+      //   var videoEl = this[ELEMENT].querySelector("video");
+      //   videoEl.addEventListener("durationchange", function (data) {
+      //     return updateDuration(_this[ELEMENT], videoEl.duration);
+      //   });
 
-        videoEl.addEventListener("timeupdate", function (data) {
-          return updateCurrentTime(_this[ELEMENT], videoEl.currentTime);
-        });
+      //   videoEl.addEventListener("timeupdate", function (data) {
+      //     return updateCurrentTime(_this[ELEMENT], videoEl.currentTime);
+      //   });
 
-        videoEl.addEventListener("play", function (data) {
-          return updatePlayStopControlState(_this[ELEMENT], data.type);
-        });
-        videoEl.addEventListener("pause", function (data) {
-          return updatePlayStopControlState(_this[ELEMENT], data.type);
-        });
-        videoEl.addEventListener("ended", function (data) {
-          _this[PLAY_STATE] = false;
-          resetProgress(_this[ELEMENT]);
-        });
+      //   videoEl.addEventListener("play", function (data) {
+      //     return updatePlayStopControlState(_this[ELEMENT], data.type);
+      //   });
+      //   videoEl.addEventListener("pause", function (data) {
+      //     return updatePlayStopControlState(_this[ELEMENT], data.type);
+      //   });
+      //   videoEl.addEventListener("ended", function (data) {
+      //     _this[PLAY_STATE] = false;
+      //     resetProgress(_this[ELEMENT]);
+      //   });
 
-        this[ELEMENT].querySelector('[data-role="play-stop"]').addEventListener("click", function () {
-          return _this.togglePlayState();
-        });
+      //   this[ELEMENT].querySelector('[data-role="play-stop"]').addEventListener("click", function () {
+      //     return _this.togglePlayState();
+      //   });
 
-        this[ELEMENT].querySelector("progress").addEventListener("click", function (ev) {
-          _this.goTo(parseFloat(ev.target.getAttribute("max")) * ev.offsetX / ev.target.offsetWidth);
-        });
-      }
+      //   this[ELEMENT].querySelector("progress").addEventListener("click", function (ev) {
+      //     _this.goTo(parseFloat(ev.target.getAttribute("max")) * ev.offsetX / ev.target.offsetWidth);
+      //   });
+      // }
     }]);
 
     return SimpleVideoPlayer;
