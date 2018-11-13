@@ -19,6 +19,7 @@
             height: 0;
             width: 70%; /* You can set this width to whatever suits your needs */
             margin: 0 auto;
+            display: none;
         }
 
         .videoWrapper video {
@@ -30,7 +31,7 @@
         }
 
     </style>
-        <div class="videoWrapper">
+        <div class="main_content">
             <div>
                     <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
                             <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
@@ -51,11 +52,11 @@
                               <a-entity camera></a-entity>
                         </a-scene>
             </div>
-            <!-- <div class="videoWrapper"> -->
-                <video controls muted="muted" playsinline>
+            <div class="videoWrapper">
+                <video id="videocontrol" muted="muted" playsinline>
                     <source src="./video/funny.mp4" type="video/mp4">
                 </video>
-            <!-- </div> -->
+            </div>
         </div>
     <script>
         setInterval(this.verifyMarker, 1000);
@@ -63,14 +64,15 @@
         function verifyMarker(){
             console.log('Hello');
 
-            var x = document.getElementById("videoplayer");
-  
+            var x = document.getElementById("videoWrapper");
+            var videocontrol = document.getElementById("videocontrol");
+
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
                 console.log('marker is visible');
                 // document.location.href = "video.html";
                 x.style.display = "block";
-                x.play();
+                videocontrol.play();
             }
             else {
                 console.log('marker is lost');
