@@ -9,8 +9,8 @@
     <style>
 
         .main_content {
-            flex-direction: row;
-            flex-wrap: wrap;
+            height: auto;
+            width: auto;
             justify-content: center;
             align-items: center;
         }
@@ -28,7 +28,7 @@
             .videoplayer { width: 90%; }
         }
     </style>
-        <div>
+        <div class="main_content">
             <div>
                     <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
                             <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
@@ -52,7 +52,7 @@
 
             <div class="videoplayer" id="videoplayer">
                     <!-- <button type="button">Click Me!</button>     -->
-                    <video id="videos" src="./video/ticket.mp4" margin-left: 10%; margin-right: 10%; margin-top: 10%; margin-bottom: 10%;\>
+                    <video id="videos" src="./video/ticket.mp4" width="50%" height="70%">
             </div>
         </div>
     <script>
