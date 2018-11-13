@@ -42,7 +42,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
       this[ELEMENT] = options.el;
       this[URL] = options.url;
-      this[PLAY_STATE] = false;
+      this[PLAY_STATE] = true;
       this.draw();
       this.subscribeToEvents();
     }
@@ -50,7 +50,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     _createClass(SimpleVideoPlayer, [{
       key: "draw",
       value: function draw() {
-        this[ELEMENT].innerHTML = "\n        <div class=\"simple-video-player\">\n          <div class=\"video-wrapper\">\n            <video src=\"" + this[URL] + "\" />\n          </div>\n          <div class=\"controls-wrapper\">\n            <div class=\"progress-bar-wrapper\">\n              <progress class=\"progress-bar\" max value></progress>\n            </div>\n            <div class=\"controls\">\n              <button data-role=\"play-stop\" class=\"stopped\"></button>\n            </div>\n          </div>\n        </div>\n      ";
+        this[ELEMENT].innerHTML = "\n        <div class=\"simple-video-player\">\n          <div class=\"video-wrapper\">\n            <video src=\"" + this[URL] + "\" />\n          </div>\n          </div>\n  ";
       }
     }, {
       key: "togglePlayState",
