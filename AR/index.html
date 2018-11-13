@@ -15,12 +15,12 @@
             align-items: center;
         }
         .videoplayer {
-            width: 50px;
+            /* width: 50px;
             position: relative;
             justify-content: center;
             align-self: center;
             margin:0 auto;
-            line-height: 1.4em;
+            line-height: 1.4em; */
             display: none; 
         }
         /* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */    
@@ -28,12 +28,9 @@
             .videoplayer { width: 90%; }
         }
     </style>
-        <div class="main_content">
+        <div>
             <div>
                     <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-                            <a-assets>
-                                <video id="penguin-sledding" autoplay loop="true" src="./video/ticket.mp4" webkit-playsinline></video>
-                            </a-assets>
                             <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
                             <a-marker preset='custom' type="pattern" url='./patt/one.patt' id="one" ref="one">
                               <a-box position='0 0.5 0' material='color: red;'></a-box>
@@ -41,12 +38,12 @@
                         
                             <a-marker preset='custom' type="pattern" url='./patt/daytona.patt' id="daytona" ref="daytona">
                                 <!-- <a-box position='0 0.5 0' material='color: red;'></a-box> -->
-                                <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
+                                <a-box position='0 0.5 0' material='color: red;'></a-box>
                             </a-marker>
                         
                             <a-marker preset='hiro' id="amarker" ref="amarker">
                                 <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-                                <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
+                                <a-box position='0 0.5 0' material='color: red;'></a-box>
                             </a-marker>
                         
                               <a-entity camera></a-entity>
@@ -55,18 +52,9 @@
 
             <div class="videoplayer" id="videoplayer">
                     <!-- <button type="button">Click Me!</button>     -->
+                    <video src="./video/ticket.mp4" height="50%" width="50%" autoplay \>
             </div>
         </div>
-    <script src="simple-video-player.js"></script>
-    <script>
-          (function () {
-            new SimpleVideoPlayer({
-              el: document.querySelector('.videoplayer'),
-              url: './video/ticket.mp4'
-              // url: 'https://edgeset.sharepoint.com/:v:/g/EckEqWnJa0xEvmAn8vcbMv8BQOdAKB15pCE1zJNbGZ9lTA?e=5cK475'
-            });
-          })();
-    </script>    
     <script>
         setInterval(this.verifyMarker, 1000);
 
