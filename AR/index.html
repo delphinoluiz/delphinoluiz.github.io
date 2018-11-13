@@ -14,19 +14,22 @@
             justify-content: center;
             align-items: center;
         }
-        .videoplayer {
-            /* width: 50px;
+        .videoWrapper {
             position: relative;
-            justify-content: center;
-            align-self: center;
-            margin:0 auto;
-            line-height: 1.4em; */
-            display: none; 
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            width: 70%; /* You can set this width to whatever suits your needs */
+            margin: 0 auto;
         }
-        /* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */    
-        @media only screen and (max-width: 479px){
-            .videoplayer { width: 90%; }
+
+        .videoWrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
+
     </style>
         <div class="main_content">
             <div>
@@ -49,7 +52,9 @@
                               <a-entity camera></a-entity>
                         </a-scene>
             </div>
-            <video class="videoplayer" id="videoplayer" muted="muted" src="./video/ticket.mp4" width="500" height="300">
+            <div class="videoWrapper">
+                <video muted="muted" src="./video/ticket.mp4">
+            </div>
         </div>
     <script>
         setInterval(this.verifyMarker, 1000);
