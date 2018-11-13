@@ -44,7 +44,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       this[URL] = options.url;
       this[PLAY_STATE] = true;
       this.draw();
-      this.subscribeToEvents();
+      this.play();
+      // this.subscribeToEvents();
     }
 
     _createClass(SimpleVideoPlayer, [{
