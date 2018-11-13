@@ -5,7 +5,6 @@
   <body style='margin : 0px; overflow: hidden;'>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
 
-    <div id="myEmbeddedScene">
         <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
                 <video id="penguin-sledding" autoplay loop="true" src="./video/ticket.mp4"></video>
@@ -26,9 +25,7 @@
             </a-marker>
         
               <a-entity camera></a-entity>
-            </a-scene>
-      </div>
-
+        </a-scene>
     <script>
         setInterval(this.verifyMarker, 1000);
 
