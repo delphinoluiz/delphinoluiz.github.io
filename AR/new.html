@@ -3,11 +3,13 @@
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
         <a-assets>
-                <img id="my-image" src="./png/500.png">
+            <!-- <img id="my-image" src="./png/500.png"> -->
+            <video id="penguin" autoplay loop="true" src="./video/ticket.mp4"></video>
         </a-assets>
 		<!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
         <a-marker preset='hiro'>
-            <a-image src="#my-image"></a-image>
+            <!-- <a-image src="#my-image"></a-image> -->
+            <a-video src="#penguin" width="16" height="9" position="0 0 -20"></a-video>
         </a-marker>
 
         <a-entity camera></a-entity>
