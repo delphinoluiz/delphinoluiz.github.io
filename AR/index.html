@@ -15,7 +15,7 @@
         }
         .videoWrapper {
             position: relative;
-            /* padding-bottom: 56.25%; 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             width: 70%; /* You can set this width to whatever suits your needs */
             margin: 0 auto;
@@ -30,7 +30,7 @@
         }
 
     </style>
-        <div class="main_content">
+        <div class="videoWrapper">
             <div>
                     <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
                             <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
@@ -51,9 +51,9 @@
                               <a-entity camera></a-entity>
                         </a-scene>
             </div>
-            <div class="videoWrapper">
+            <!-- <div class="videoWrapper"> -->
                 <video muted="muted" src="./video/ticket.mp4">
-            </div>
+            <!-- </div> -->
         </div>
     <script>
         setInterval(this.verifyMarker, 1000);
