@@ -7,6 +7,14 @@
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
 
     <style>
+
+        .main_content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
         .videoplayer {
             width: 50px;
             position: relative;
@@ -21,7 +29,7 @@
             .videoplayer { width: 90%; }
         }
     </style>
-        <div>
+        <div class="main_content">
             <div>
                     <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
                             <a-assets>
