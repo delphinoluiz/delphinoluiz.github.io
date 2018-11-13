@@ -100,6 +100,12 @@
             else {
                 console.log('marker is lost');
             }
+
+            document.getElementById('videocontrol').addEventListener('ended',myHandler,false);
+            function myHandler(e) {
+                // What you want to do after the event
+                x.style.display = "none";
+            }
         }
     </script>
 
