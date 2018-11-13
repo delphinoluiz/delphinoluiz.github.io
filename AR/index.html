@@ -49,11 +49,7 @@
                               <a-entity camera></a-entity>
                         </a-scene>
             </div>
-
-            <div class="videoplayer" id="videoplayer">
-                    <!-- <button type="button">Click Me!</button>     -->
-                    <video id="videos" src="./video/ticket.mp4" width="50%" height="70%">
-            </div>
+            <video id="videoplayer" src="./video/ticket.mp4" width="500" height="300">
         </div>
     <script>
         setInterval(this.verifyMarker, 1000);
@@ -62,14 +58,13 @@
             console.log('Hello');
 
             var x = document.getElementById("videoplayer");
-            var videos = document.getElementById("videos");
   
             var amarker = document.querySelector("#amarker")
             if(amarker.object3D.visible == true) {
                 console.log('marker is visible');
                 // document.location.href = "video.html";
                 x.style.display = "block";
-                videos.style.autoplay();
+                x.style.autoplay();
             }
             else {
                 console.log('marker is lost');
