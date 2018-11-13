@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     _createClass(SimpleVideoPlayer, [{
       key: "draw",
       value: function draw() {
-        this[ELEMENT].innerHTML = "\n        <div class=\"simple-video-player\" style=\"height:50px; width:50px;\" >\n          <div class=\"video-wrapper\" style=\"height:40px; width:40px;\">\n            <video src=\"" + this[URL] + "\" />\n          </div>\n          </div>\n  ";
+        this[ELEMENT].innerHTML = "\n        <div class=\"simple-video-player\" style=\"height:50px; width:50px;\" >\n          <div class=\"video-wrapper\" style=\"height:40px; width:40px;\">\n            <video src=\"" + this[URL] + "\" height=\"30px\" />\n          </div>\n          </div>\n  ";
       }
     }, {
       key: "togglePlayState",
