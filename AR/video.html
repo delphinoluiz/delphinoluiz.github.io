@@ -19,6 +19,27 @@
               }); function refrespage() { location.reload(); } 
   </script>
 
+<script>
+  setInterval(this.verifyMarker, 1000);
+
+  function verifyMarker(){
+      console.log('Hello');
+
+      var x = document.getElementById("memarker");
+
+      var memarker = document.querySelector("#memarker")
+      if(memarker.object3D.visible == true) {
+          console.log('marker is visible');
+          // document.location.href = "video.html";
+          vid.play();
+      }
+      else {
+          console.log('marker is lost');
+          // x.style.display = "none";
+      }
+  }
+</script>
+
 <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 250; canvasHeight: 250' >
 
   <a-assets >
