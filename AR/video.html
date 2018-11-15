@@ -16,7 +16,9 @@
               if(this.el.object3D.visible == true){ 
                 if(!this.toggle){ this.toggle = true; this.vid.play(); } 
               }else{ this.toggle = false; this.vid.pause(); } } 
-              }); function refrespage() { location.reload(); } 
+              }); 
+              
+            function refrespage() { location.reload(); } 
   </script>
 
 <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 250; canvasHeight: 250' >
