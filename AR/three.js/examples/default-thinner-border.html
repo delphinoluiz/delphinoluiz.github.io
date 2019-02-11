@@ -131,27 +131,27 @@
 	var mesh = new THREE.AxisHelper()
 	markerScene.add(mesh)
 
-	// add a torus knot
-	var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
-	var material	= new THREE.MeshNormalMaterial({
-		transparent : true,
-		opacity: 0.5,
-		side: THREE.DoubleSide
-	});
-	var mesh	= new THREE.Mesh( geometry, material );
-	mesh.position.y	= geometry.parameters.height/2
-	markerScene.add(mesh)
+	// // add a torus knot
+	// var geometry = new THREE.PlaneGeometry( 1, 1, 1, 1 );
+	// var material	= new THREE.MeshNormalMaterial({
+	// 	transparent : true,
+	// 	opacity: 0.5,
+	// 	side: THREE.DoubleSide
+	// });
+	// var mesh	= new THREE.Mesh( geometry, material );
+	// mesh.position.y	= geometry.parameters.height/2
+	// markerScene.add(mesh)
 
-	var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
+	var geometry = new THREE.PlaneGeometry( 1, 1, 1, 1 );
 	var material	= new THREE.MeshNormalMaterial();
 	var mesh	= new THREE.Mesh( geometry, material );
-	mesh.position.y	= 0.5
+	// mesh.position.y	= 0.5
 	markerScene.add( mesh );
 
-	onRenderFcts.push(function(delta){
-		mesh.rotation.x += delta * Math.PI
-		console.log('detected');
-	})
+	// onRenderFcts.push(function(delta){
+	// 	mesh.rotation.x += delta * Math.PI
+	// 	console.log('detected');
+	// })
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
