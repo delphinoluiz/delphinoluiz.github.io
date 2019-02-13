@@ -6,6 +6,7 @@
 <!-- ar.js -->
 <script src="../build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
+<script src='vendor/threex.videotexture.js'></script>
 
 <!-- Bind window error for error handling -->
 <script>
@@ -18,6 +19,9 @@
 	<a href='https://github.com/jeromeetienne/AR.js/' target='_blank'>AR.js</a> - use a ar.js marker with pattRatio 0.9
 	<br/>
 	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
+	<video controls autoplay loop muted playsinline style="visibility: hidden" id="video">
+		<source src="video/AR_HarleyJ_v2.mp4" type="video/mp4">
+	</video>
 </div><script>
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
@@ -55,8 +59,8 @@
 	////////////////////////////////////////////////////////////////////////////////
 
 	var artoolkitProfile = new THREEx.ArToolkitProfile()
-	artoolkitProfile.sourceWebcam()
-	// artoolkitProfile.sourceImage(THREEx.ArToolkitContext.baseURL + '../test/data/images/marker-artoolkit-pattern-pattratio-09.png')
+    	 artoolkitProfile.sourceWebcam()
+    //artoolkitProfile.sourceImage(THREEx.ArToolkitContext.baseURL + '../test/data/images/marker-artoolkit-pattern-pattratio-09.png')
 
 	var arToolkitSource = new THREEx.ArToolkitSource(artoolkitProfile.sourceParameters)
 
@@ -140,19 +144,33 @@
 	});
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/2
-	markerScene.add(mesh)
+//	markerScene.add(mesh)
 
 	var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
 	var material	= new THREE.MeshNormalMaterial();
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= 0.5
-	markerScene.add( mesh );
+//	markerScene.add( mesh );
 
 	onRenderFcts.push(function(delta){
 		mesh.rotation.x += delta * Math.PI
 	})
 
-	//////////////////////////////////////////////////////////////////////////////////
+
+    var geometryVideo	= new THREE.CubeGeometry(1,0,1);
+    var url	= 'video/AR_HarleyJ_v2.mp4';
+    var videoTexture= new THREEx.VideoTexture(url);
+
+    var video	= videoTexture.video;
+    var materialVideo	= new THREE.MeshBasicMaterial({
+        map	: videoTexture.texture
+    });
+    var plane	= new THREE.Mesh( geometryVideo, materialVideo );
+    markerScene.add( plane );
+    onRenderFcts.push(function(delta, now){
+        videoTexture.update(delta, now)
+    });
+    //////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
 	// render the scene
