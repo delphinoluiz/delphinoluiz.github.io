@@ -7,6 +7,8 @@
 <script src="../build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 <script src='vendor/threex.videotexture.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Bind window error for error handling -->
 <script>
@@ -15,18 +17,111 @@
 	});
 </script>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center;z-index:1';>
-	<a href='https://github.com/jeromeetienne/AR.js/' target='_blank'>AR.js</a> - use a ar.js marker with pattRatio 0.9
-	<br/>
-	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
-	<video controls autoplay loop muted playsinline style="visibility: hidden" id="video">
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+	<!--<button onclick='onVideoPauseButtonClick()'>pause</button>-->
+	<video controls autoplay loop playsinline style="visibility: hidden" id="video">
 		<source src="video/AR_HarleyJ_v2.mp4" type="video/mp4">
 	</video>
-</div><script>
+
+	<div class="footer">
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+			<div class="onebleft">
+				<!--<label for="Sound" style="color:red;">Sound On</label> <input type="checkbox" name="Sound" value="1" id="Sound" onclick="calc();"  />-->
+				<button onclick='calc();' class="btn btnskips" id="sound">Sound On</button>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+			<div class="onebright">
+				<button onclick="location.href='http://www.daytonainternationalspeedway.com'" class="btn btnskips">Want More?</button>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	.footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		color: white;
+		z-index:1000;
+	}
+	.onebleft{
+		padding: 5px 5px 5px 5px;
+		margin: 5px 15px 5px 5px ;
+		float: left;
+		z-index: 900000000000;
+	}
+	.onebright{
+		padding: 5px 5px 5px 5px;
+		margin: 5px 15px 5px 5px ;
+		float: right;
+		z-index: 900000000000;
+	}
+	.imgon{
+		width: 55px;
+		height: 55px;
+		background-color:white;
+		padding: 3px 2px 2px 2px !important;
+	}
+	.imgss{
+		width: 50px !important;
+		height:50px !important;
+	}
+	.imgname{
+		font-size: 10px;
+	}
+	.header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		color: white;
+	}
+	.oneleft{
+		padding: 5px 5px 5px 5px;
+		margin: 5px 15px 5px 5px ;
+		float: left;
+		z-index: 900000000000;
+	}
+	body{
+		margin:0px;
+		overflow: hidden;
+	}
+	.resets{
+		background-color: rgba(51, 51, 51, 0.529);
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		height: 50px;
+		padding: 10px 10px 10px 10px;
+		position: fixed;
+		top: 10px;
+		text-align: center;
+		z-index: 9000000000;
+		bottom: 10px;
+	}
+	.btnskips{
+		background: #d22416;
+		color: white !important;
+	}
+	.btnskips:hover{
+		background: #0062cc;
+	}
+	#arjsDebugUIContainer{
+		display: none;
+	}
+	.a-enter-vr-button{
+		display: none !important;
+	}
+</style>
+<script>
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
 	//////////////////////////////////////////////////////////////////////////////////
-
+    var sound = false;
 	// init renderer
 	var renderer	= new THREE.WebGLRenderer({
 		// antialias	: true,
@@ -168,7 +263,12 @@
     var plane	= new THREE.Mesh( geometryVideo, materialVideo );
     markerScene.add( plane );
     onRenderFcts.push(function(delta, now){
-        videoTexture.update(delta, now)
+        if( arToolkitSource.ready === false )  return
+        videoTexture.update(delta, now);
+        if(sound)
+            videoTexture.video.muted = false;
+        else
+            videoTexture.video.muted = true;
     });
     //////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
@@ -192,4 +292,14 @@
 			onRenderFct(deltaMsec/1000, nowMsec/1000)
 		})
 	})
+    function calc() {
+	    sound = !sound;
+        if (sound){
+            document.getElementById("sound").innerText = "Sound Off";
+		}
+        else{
+            document.getElementById("sound").innerText = "Sound On";
+		}
+    }
+
 </script></body>
