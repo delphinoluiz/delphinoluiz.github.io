@@ -207,7 +207,7 @@
 	})
 
 
-    var geometryVideo	= new THREE.CubeGeometry(1,0,1.7);
+    var geometryVideo	= new THREE.CubeGeometry(1.1,0,1.8);
     var url	= 'video/AR_HarleyJ_v2.mp4';
     var videoTexture= new THREEx.VideoTexture(url);
 
@@ -216,7 +216,6 @@
         map	: videoTexture.texture
     });
     var plane	= new THREE.Mesh( geometryVideo, materialVideo );
-    plane.position.z = 0.2;
     markerScene.add( plane );
     onRenderFcts.push(function(delta, now){
 		videoTexture.update(delta, now);
