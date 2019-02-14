@@ -247,7 +247,13 @@
 		})
 	})
     function calc() {
-	    sound = true;
+		var isSafari = window.safari !== undefined;
+		if (isSafari) {
+			console.log("Safari, yeah!");
+		} else {
+			console.log("Not Safari!");
+			sound = true;
+		}
 //	    if(sound){
 //            document.getElementById("soundImg").innerText = "Sound Off";
 //		}else{
