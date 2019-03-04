@@ -16,7 +16,7 @@
        AFRAME.registerComponent('vidhandler', { // ...
             init: function () { // Set up initial state and variables. 
             this.toggle = false;
-            this.vid = document.querySelector("#vid");
+            this.vid = document.querySelector("#vid"); µ
 
             this.vid.pause();
             },
@@ -43,11 +43,12 @@
         <h3>Error : Your browser does not support.</h3>
        <!-- FOR NOTMAL VIDEO YOU CAN USE MP4 or WEBM BUT FOR ALPHA VIDEO YOU NEED TO USE .WEBM FORMAT-->
      </video>
+     <a-asset-item id="tree" src="./gltf/microcar_gltf.gltf"></a-asset-item>
   </a-assets>
 
   <a-marker  type="pattern" preset="custom" url="./patt/daytona.patt" vidhandler patternRatio="0.9">
-      <a-plane  position='0 0.1 0' scale="1.08 1.92 1.2" rotation="-90 0 0" material='transparent:true;alphaTest:0;src:#vid'></a-plane>
-
+      <!-- <a-plane  position='0 0.1 0' scale="1.08 1.92 1.2" rotation="-90 0 0" material='transparent:true;alphaTest:0;src:#vid'></a-plane> -->
+      <a-gltf-model src="#tree"></a-gltf-model>
   </a-marker>
   <a-entity camera></a-entity>
 </a-scene>
