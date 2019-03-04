@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*COLOR of site = lightgrey
+html{
+	background-color: #D3D3D3;
+}
+main.container{
+	background-color: #D3D3D3;
+}
+*/
+
+/* Makes content centered horizontally and vertically*/
+.center-div
+{
+     position: absolute;
+     margin: 0 auto;
+     width: 100%;
+     height: 100%;
+	 text-align: center;
+	 padding: 5%;
+}
+
+/* DIS Logo */
+#logo{
+	width: 35%;
+}
+
+/* marker */
+#marker, #marker2, #marker3, #marker4{
+	width: 40%;
+}
+
+/*Header*/
+#appeal{
+	color: #5d9ac0;
+	text-align: center;
+	margin-top: 3%;
+}
+
+/* Space around Paragraphs*/
+p{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+/* Extra space under button */
+p.lead{
+	margin-bottom: 5%;
+}
+
+/* Button color = before pressed*/
+.btn-primary {
+    color: #fff;
+	/*blue
+    background-color: #5d9ac0;
+    border-color: #5d9ac0;*/
+	
+	/*red*/
+	background-color: #d22416;
+    border-color: #d22416;
+}
+
+/* Button color = when actively pressed*/
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #5d9ac0;
+    border-color: #5d9ac0;
+}
+
+/* Button color = after pressed*/
+.btn-primary:hover {
+    background-color: #0062cc;
+}
+
+/* -- MEDIA QUERIES -- */
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+	#marker, #marker2, #marker3, #marker4{
+		width: 24%;
+}
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+	#logo{
+		width: 15%;
+	}
+	#marker, #marker2, #marker3, #marker4{
+		width: 10%;
+	}
+	p{
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+}
